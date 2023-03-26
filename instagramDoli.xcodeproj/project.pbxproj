@@ -55,6 +55,9 @@
 		6F9B822C29D08E0E0048438B /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F9B822B29D08E0E0048438B /* FirebaseRemoteConfigSwift */; };
 		6F9B822E29D08E0E0048438B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6F9B822D29D08E0E0048438B /* FirebaseStorage */; };
 		6F9B823029D08E0E0048438B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6F9B822F29D08E0E0048438B /* FirebaseStorageCombine-Community */; };
+		6F9B823229D0C6EE0048438B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B823129D0C6EE0048438B /* DatabaseManager.swift */; };
+		6F9B823429D0C7CC0048438B /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B823329D0C7CC0048438B /* AuthManager.swift */; };
+		6F9B823629D0C8280048438B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B823529D0C8280048438B /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		6F2C26D529CF8E2B0056FCE7 /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		6F2C26D729CF8E400056FCE7 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
 		6F7F167629D08C1800C4BDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6F9B823129D0C6EE0048438B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		6F9B823329D0C7CC0048438B /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		6F9B823529D0C8280048438B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,9 @@
 			children = (
 				6F2C26A129CF88480056FCE7 /* AppDelegate.swift */,
 				6F2C26A329CF88480056FCE7 /* SceneDelegate.swift */,
+				6F9B823129D0C6EE0048438B /* DatabaseManager.swift */,
+				6F9B823329D0C7CC0048438B /* AuthManager.swift */,
+				6F9B823529D0C8280048438B /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -341,12 +350,15 @@
 				6F2C26A629CF88480056FCE7 /* HomeViewController.swift in Sources */,
 				6F2C26C729CF8C5E0056FCE7 /* RegistrationViewController.swift in Sources */,
 				6F2C26D629CF8E2B0056FCE7 /* PostEditorViewController.swift in Sources */,
+				6F9B823629D0C8280048438B /* StorageManager.swift in Sources */,
 				6F2C26CA29CF8C920056FCE7 /* PostViewController.swift in Sources */,
+				6F9B823229D0C6EE0048438B /* DatabaseManager.swift in Sources */,
 				6F2C26BF29CF8B850056FCE7 /* NotificationsViewController.swift in Sources */,
 				6F2C26D429CF8D0D0056FCE7 /* SearchResultViewController.swift in Sources */,
 				6F2C26C529CF8C480056FCE7 /* LoginViewController.swift in Sources */,
 				6F2C26D229CF8CED0056FCE7 /* SearchViewController.swift in Sources */,
 				6F2C26C129CF8B950056FCE7 /* ProfileViewController.swift in Sources */,
+				6F9B823429D0C7CC0048438B /* AuthManager.swift in Sources */,
 				6F2C26A229CF88480056FCE7 /* AppDelegate.swift in Sources */,
 				6F2C26A429CF88480056FCE7 /* SceneDelegate.swift in Sources */,
 				6F2C26D029CF8CD80056FCE7 /* ListViewController.swift in Sources */,
