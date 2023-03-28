@@ -7,12 +7,13 @@
 
 import UIKit
 import SafariServices
+import FirebaseAuth
+
+struct Constants {
+    static let cornerRadius: CGFloat = 8.0
+}
 
 class LoginViewController: UIViewController {
-    
-    struct Constants {
-        static let cornerRadius: CGFloat = 8.0
-    }
     
     private let usernameEmailField: UITextField = {
        let field = UITextField()
@@ -149,13 +150,46 @@ class LoginViewController: UIViewController {
     @objc private func didTapLoginButtom() {
         passwordField.resignFirstResponder()
         usernameEmailField.resignFirstResponder()
+        print("ACCAAAA")
         
         guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty, let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+            let alert = UIAlertController(title: "Log in Error ", message: "Bad Email or Password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismis", style: .cancel))
+            
+            self.present(alert, animated: true)
+            
             return
         }
         
-        // login func
+        var username: String?
+        var email: String?
         
+        // login func
+        if usernameEmail.contains("@"), usernameEmail.contains(".") {
+           // email
+            email = usernameEmail
+        } else {
+            // name
+            username = usernameEmail
+        }
+        
+        
+        
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+            DispatchQueue.main.async {
+                if success {
+                    // login
+                    self.dismiss(animated: true)
+                } else {
+                    // error
+                    let alert = UIAlertController(title: "Log in Error ", message: "We were unable to log you im", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismis", style: .cancel))
+                    
+                    self.present(alert, animated: true)
+                    
+                }
+            }
+        }
     }
     
     @objc private func didTapTermsButtom() {
@@ -176,7 +210,8 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButtom() {
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
 
 }
