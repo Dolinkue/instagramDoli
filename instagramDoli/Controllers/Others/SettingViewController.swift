@@ -4,7 +4,7 @@
 //
 //  Created by Nicolas Dolinkue on 25/03/2023.
 //
-
+import SafariServices
 import UIKit
 
 struct SettingCellModel {
@@ -67,11 +67,70 @@ final class SettingViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     
+    private func didTapEditProfile() {
+        let vc = EditProfileViewController()
+        
+        vc.title = "Edit Profile"
+        let navVc = UINavigationController(rootViewController: vc)
+        present(navVc, animated: true)
+    }
+    
+    private func didTapInviteFriends() {
+        // show share sheet
+    }
+    
+    private func didTapSaveOriginalPost() {
+        
+    }
+    
+    private func openURL(type: SettingUrlType) {
+        
+        let urlString: String
+        switch type {
+        case .terms: urlString = "https://about.instagram.com/es-la/blog/announcements/instagram-community-terms-of-use-faqs"
+        case .policy: urlString = "https://about.instagram.com/es-la/blog/announcements/instagram-community-terms-of-use-faqs"
+        case .help: urlString = "https://help.instagram.com/"
+        }
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+    
+    enum SettingUrlType {
+        case terms
+        case policy
+        case help
+    }
+    
     private func configureModel() {
-        let section = [SettingCellModel(title: "Log Out", handler: {
+        
+        data.append([SettingCellModel(title: "Edit Profile", handler: {
+            [weak self] in self?.didTapEditProfile()
+        }),SettingCellModel(title: "Invite friends", handler: {
+            [weak self] in self?.didTapInviteFriends()
+        }),SettingCellModel(title: "Save Original Posts", handler: {
+            [weak self] in self?.didTapSaveOriginalPost()
+        })])
+        
+        data.append([SettingCellModel(title: "Terms of Service", handler: {
+            [weak self] in self?.openURL(type: .terms)
+        })])
+        
+        data.append([SettingCellModel(title: "Privacy Policy", handler: {
+            [weak self] in self?.openURL(type: .policy)
+        })])
+        
+        data.append([SettingCellModel(title: "Help / Feedback", handler: {
+            [weak self] in self?.openURL(type: .help)
+        })])
+        
+        data.append([SettingCellModel(title: "Log Out", handler: {
             [weak self] in self?.didTapLogOut()
-        })]
-        data.append(section)
+        })])
     }
 
 }
@@ -89,6 +148,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
