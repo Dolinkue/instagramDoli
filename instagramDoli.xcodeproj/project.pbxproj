@@ -30,6 +30,7 @@
 		6F476A7E29D8D07A00F71D39 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6F476A7D29D8D07A00F71D39 /* SDWebImage */; };
 		6F476A8029D8D07A00F71D39 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6F476A7F29D8D07A00F71D39 /* SDWebImageMapKit */; };
 		6F476A8229D8D8E600F71D39 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F476A8129D8D8E600F71D39 /* Models.swift */; };
+		6F476A8429DD91AC00F71D39 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F476A8329DD91AC00F71D39 /* UserFollowTableViewCell.swift */; };
 		6F7F167729D08C1800C4BDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F7F167629D08C1800C4BDDB /* GoogleService-Info.plist */; };
 		6F9B81FC29D08E0E0048438B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6F9B81FB29D08E0E0048438B /* FirebaseAnalytics */; };
 		6F9B81FE29D08E0E0048438B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 6F9B81FD29D08E0E0048438B /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -96,6 +97,7 @@
 		6F2C26D529CF8E2B0056FCE7 /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		6F2C26D729CF8E400056FCE7 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
 		6F476A8129D8D8E600F71D39 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		6F476A8329DD91AC00F71D39 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		6F7F167629D08C1800C4BDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F9B823129D0C6EE0048438B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		6F9B823329D0C7CC0048438B /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				6F9B823C29D613890048438B /* Home Feed */,
 				6F9B824329D71F960048438B /* FormTableViewCell.swift */,
 				6F9B824629D76EE20048438B /* PhotoCollectionViewCell.swift */,
+				6F476A8329DD91AC00F71D39 /* UserFollowTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				6F2C26D629CF8E2B0056FCE7 /* PostEditorViewController.swift in Sources */,
 				6F9B823629D0C8280048438B /* StorageManager.swift in Sources */,
 				6F9B823E29D613B20048438B /* IGFeedPostHearderTableViewCell.swift in Sources */,
+				6F476A8429DD91AC00F71D39 /* UserFollowTableViewCell.swift in Sources */,
 				6F476A8229D8D8E600F71D39 /* Models.swift in Sources */,
 				6F9B824429D71F960048438B /* FormTableViewCell.swift in Sources */,
 				6F2C26CA29CF8C920056FCE7 /* PostViewController.swift in Sources */,

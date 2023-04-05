@@ -103,6 +103,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         if indexPath.section == 1 {
             // tabs headers
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as! ProfileTabsCollectionReusableView
+            header.delegate = self
             
             return header
         }
@@ -119,7 +120,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return CGSize(width: collectionView.width, height: collectionView.height/3)
         }
         // Size of section tabs
-        return CGSize(width: collectionView.width, height: 65)
+        return CGSize(width: collectionView.width, height: 50)
     }
 }
 
@@ -130,14 +131,14 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["nico", "nico"])
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderDidTapFollowinsButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["nico", "nico"])
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -147,6 +148,18 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
         let vc = EditProfileViewController()
         vc.title = "Edit Profile"
         present(UINavigationController(rootViewController: vc), animated: true)
+    }
+    
+    
+}
+
+extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
+    func didTapGridButtonTab() {
+        // reload collection view
+    }
+    
+    func didTapTagdButtonTab() {
+        // reload collection view
     }
     
     
