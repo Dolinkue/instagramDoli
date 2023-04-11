@@ -62,8 +62,9 @@ class NotificationsViewController: UIViewController {
     
     private func fetchNotifications() {
         for x in 0...10 {
-            let post = UserPost(indentifier: "", postType: .photo, thumbnailImage: URL(string: "https://www.google.com")!, postURL: URL(string: "https://www.google.com")!, caption: nil, likeCount: [], comments: [], createDate: Date(), taggedUsers: [])
-            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following), text: "Hello wordl", user: User(username: "jose", bio: "", name: (first: "", last: ""), birthDate: Date(), gender: .male, counts: UserCount(followers: 1, followings: 1, post: 1), joinDate: Date(), profilePhoto: URL(string: "https://www.google.com")!))
+            let user = User(username: "jose", bio: "", name: (first: "", last: ""), birthDate: Date(), gender: .male, counts: UserCount(followers: 1, followings: 1, post: 1), joinDate: Date(), profilePhoto: URL(string: "https://www.google.com")!)
+            let post = UserPost(indentifier: "", postType: .photo, thumbnailImage: URL(string: "https://www.google.com")!, postURL: URL(string: "https://www.google.com")!, caption: nil, likeCount: [], comments: [], createDate: Date(), taggedUsers: [], owner: user)
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following), text: "Hello wordl", user: user)
             
             models.append(model)
         }
@@ -112,9 +113,17 @@ extension NotificationsViewController: NotificationLikeEventTableViewCellDelegat
     }
     
     func didtapRelatedPostButton(model: UserNotification) {
-        print("tap post")
-        // open the post
-        
+        switch model.type {
+        case .like(let post):
+            // open the post
+            let vc = PostViewController(model: post)
+            vc.title = post.postType.rawValue
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+        case .follow(_):
+            fatalError("dev Issue ")
+        }
+
     }
     
     
