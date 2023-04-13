@@ -78,7 +78,6 @@ class PostViewController: UIViewController {
 }
 
 extension PostViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return renderModels.count
     }
