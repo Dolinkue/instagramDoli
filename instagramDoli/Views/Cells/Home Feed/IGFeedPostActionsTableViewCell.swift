@@ -9,6 +9,14 @@ import UIKit
 
 class IGFeedPostActionsTableViewCell: UITableViewCell {
     static let identifier = "IGFeedPostActionsTableViewCell"
+    
+    
+    private let likeButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .label
+        button.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        return button
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,6 +34,10 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 
 }
